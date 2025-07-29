@@ -1,1 +1,7 @@
-429: Too Many Requests
+import "github.com/joho/godotenv"
+
+func main() {
+    godotenv.Load() // Carrega .env local
+    connectToDB()
+    ...
+}
