@@ -3,6 +3,6 @@ module mcp-server
 go 1.22
 
 require (
-	github.com/google/uuid latest
-	github.com/gorilla/mux latest
+	github.com/google/uuid v1.3.1
+	github.com/gorilla/mux v1.8.1
 )
