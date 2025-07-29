@@ -2,5 +2,5 @@ github.com/google/uuid v1.3.1 h1:xpvh9u8RUX60XzC/zn67+P3cJVVzkUuEYXG28WkYpSQ=
 github.com/google/uuid v1.3.1/go.mod h1:JvJmk2V+EP3zGi8RRceHkXGKnJzN1+jCAY4u7Ip/1kA=
 github.com/gorilla/mux v1.8.1 h1:bOHnT3f6y4dWfKAFDqzJpGXBqPqFZL6n/vHf0KOJZsQ=
 github.com/gorilla/mux v1.8.1/go.mod h1:DkRkA3Hw+kJZJwq1H95PmqnGlJJ8jeHw6uUjGzWbU+4=
-github.com/joho/godotenv v1.5.1 h1:YtknmG44s3EjDFTMWN9L6sT7Jr9FEHdJZXZ8KMxjXtU=
+github.com/joho/godotenv v1.5.1 h1:7eLL/+HRGLY0ldzfGMeQkb7vMd0as4CfYvUVzLqw0N0=
 github.com/joho/godotenv v1.5.1/go.mod h1:At8L+xg2zRU+N1Zd7NAl6RkE1TXWa4Zas5Nv/LOak7k=
