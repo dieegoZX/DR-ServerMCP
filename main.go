@@ -29,6 +29,12 @@ func main() {
 	r.HandleFunc("/mcp/{id}", updateMCPHandler).Methods("PUT")
 	r.HandleFunc("/mcp/{id}", deleteMCPHandler).Methods("DELETE")
 
+	// Serve static files
+	r.PathPrefix("/static/").Handler(http.StripPrefix("/static/", http.FileServer(http.Dir("./frontend"))))
+	r.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+		http.ServeFile(w, r, "frontend/index.html")
+	})
+
 	port := os.Getenv("PORT")
 	if port == "" {
 		port = "8080" // Default port
