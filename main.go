@@ -1,9 +1,41 @@
 package main
 
-import "github.com/joho/godotenv"
+import (
+	"log"
+	"net/http"
+	"os"
+
+	"github.com/gorilla/mux"
+	"github.com/joho/godotenv"
+)
 
 func main() {
-    godotenv.Load() // Carrega .env local
-    connectToDB()
-    ...
+	godotenv.Load() // Carrega .env local
+
+	connectToDB()
+
+	r := mux.NewRouter()
+
+	// Ping handler for health check
+	r.HandleFunc("/ping", func(w http.ResponseWriter, r *http.Request) {
+		w.WriteHeader(http.StatusOK)
+		w.Write([]byte("pong"))
+	}).Methods("GET")
+
+	// API routes
+	r.HandleFunc("/mcp", createMCPHandler).Methods("POST")
+	r.HandleFunc("/mcp", getAllMCPHandler).Methods("GET")
+	r.HandleFunc("/mcp/{id}", getMCPHandler).Methods("GET")
+	r.HandleFunc("/mcp/{id}", updateMCPHandler).Methods("PUT")
+	r.HandleFunc("/mcp/{id}", deleteMCPHandler).Methods("DELETE")
+
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "8080" // Default port
+	}
+
+	log.Printf("Server starting on port %s", port)
+	if err := http.ListenAndServe(":"+port, r); err != nil {
+		log.Fatal(err)
+	}
 }
